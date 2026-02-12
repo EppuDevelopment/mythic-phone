@@ -67,10 +67,11 @@ const useStyles = makeStyles((theme) => ({
 		textAlign: 'center',
 		height: 'fit-content',
 		padding: 10,
-		borderRadius: 10,
+		borderRadius: 15,
 		position: 'relative',
 		transition: 'background ease-in 0.15s',
 		background: `${theme.palette.primary.main}40`,
+		
 	},
 	appIcon: {
 		zIndex: 5,
@@ -80,11 +81,10 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
-		borderRadius: '0.6rem',
+		borderRadius: '0.7rem',
 		margin: 'auto',
 		transition: '0.25s ease-in-out',
 		cursor: 'pointer',
-		filter: 'drop-shadow(1px 2px 0px #00000041)',
 		fontSize: 35
 	},
 	appLabel: {
@@ -122,7 +122,7 @@ const useStyles = makeStyles((theme) => ({
 		background: `${theme.palette.primary.main}40`,
 	},
 	dock: {
-		background: 'rgba(0, 0, 0, 0.25)',
+		background: 'rgba(24, 24, 24, 0.85)',
 		height: '12.5%',
 		padding: 10,
 		display: 'flex',

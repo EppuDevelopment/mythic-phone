@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import {
-	Menu,
-	MenuItem,
-	Avatar,
-	Badge,
-} from '@material-ui/core';
+import { Menu, MenuItem, Avatar, Badge } from '@material-ui/core';
 import { makeStyles, withStyles } from '@material-ui/styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import NestedMenuItem from 'material-ui-nested-menu-item';
@@ -70,31 +65,39 @@ const useStyles = makeStyles((theme) => ({
 		borderRadius: 15,
 		position: 'relative',
 		transition: 'background ease-in 0.15s',
-		background: `${theme.palette.primary.main}40`,
-		
 	},
 	appIcon: {
 		zIndex: 5,
-		width: '4rem',
-		height: '4rem',
+		width: '3.9rem',
+		height: '3.9rem',
 		color: 'white',
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
-		borderRadius: '0.7rem',
+		borderRadius: '0.9rem', 
 		margin: 'auto',
-		transition: '0.25s ease-in-out',
 		cursor: 'pointer',
-		fontSize: 35
+		fontSize: 32,
+		backdropFilter: 'blur(8px)',
+		transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)', // Bounce effect
+		'&:hover': {
+			transform: 'translateY(-6px) scale(1.05)',
+			boxShadow: '0 15px 30px rgba(0,0,0,0.5)',
+		},
+		'&:active': {
+			transform: 'scale(0.95)',
+		},
 	},
 	appLabel: {
+		fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
 		fontSize: 16,
 		overflow: 'hidden',
 		textOverflow: 'ellipsis',
 		textShadow: '0px 0px 5px #000000',
-		fontWeight: 'normal',
+		fontWeight: '600',
 		marginTop: 10,
-        pointerEvents: 'none',
+		pointerEvents: 'none',
+		
 	},
 	dockBtn: {
 		width: '20%',
@@ -122,11 +125,14 @@ const useStyles = makeStyles((theme) => ({
 		background: `${theme.palette.primary.main}40`,
 	},
 	dock: {
-		background: 'rgba(24, 24, 24, 0.85)',
-		height: '12.5%',
-		padding: 10,
+		background: 'rgba(255, 255, 255, 0.1)', // Glass dock
+		backdropFilter: 'blur(20px)',
+		borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+		height: '14%',
+		padding: '10px 20px',
 		display: 'flex',
 		justifyContent: 'space-evenly',
+		alignItems: 'center',
 	},
 	menuClose: {
 		position: 'fixed',
@@ -332,7 +338,8 @@ export default connect(null, {
 												variant="rounded"
 												className={classes.appIcon}
 												style={{
-													background: `${data.color}`,
+													background: `linear-gradient(135deg, ${data.color} 0%, ${data.color}dd 100%)`,
+													border: `2px solid rgba(255,255,255,0.2)`,
 												}}
 											>
 												<FontAwesomeIcon
@@ -390,6 +397,7 @@ export default connect(null, {
 													className={classes.appIcon}
 													style={{
 														background: `${data.color}`,
+														
 													}}
 												>
 													<FontAwesomeIcon
@@ -403,6 +411,8 @@ export default connect(null, {
 												className={classes.appIcon}
 												style={{
 													background: `${data.color}`,
+													border: `2px solid rgba(255,255,255,0.2)`,
+													boxShadow: `0 0 10px ${data.color}80`,
 												}}
 											>
 												<FontAwesomeIcon
@@ -549,7 +559,9 @@ export default connect(null, {
 					) : (
 						<MenuItem onClick={addToHome}>Add To Home</MenuItem>
 					)}
-					<MenuItem onClick={removeFromHome}>Remove From Home</MenuItem>
+					<MenuItem onClick={removeFromHome}>
+						Remove From Home
+					</MenuItem>
 					<MenuItem onClick={openApp}>
 						Open {apps[contextApp].label}
 					</MenuItem>

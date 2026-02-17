@@ -38,6 +38,9 @@ export default compose(
             lineHeight: '75px',
             padding: '0 20px 0 20px', 
             userSelect: 'none',
+            fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+            fontWeight: '700',
+
         },
         hLeft: {
             color: '#FFFFFF',
